@@ -9,7 +9,18 @@ The module challenge is the afternoon project or assignment that students work t
 ## Objectives
 
 - Explain function scope
+
+Function is what the code sees 
+
 - Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+
+Closure is a combination of a function, and the lexical enviornment within which that function was declared.
+
+//when a function is declared within that function, a new cope is created, a functional scope
+
+// the variables or functions declared within that function have the ability to reach outward for context, but never inward. 
+
+// this paradigm remians true no matter how deep you nest functions
 
 ## Introduction
 

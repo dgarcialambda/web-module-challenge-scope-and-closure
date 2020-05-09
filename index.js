@@ -28,10 +28,18 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * Counter 1 starts with a function that has a variable and passes the variable through a fuction causing a closure where it will add 1 each time
+ *  Counter 2 because it does not have a closure will continue to log the number 1 the value remains the same
+ 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ 
+ *  Counter 1 uses a closure because it returns a function creating a closure between the context of the variable and the new updated value of the variable 
+
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ 
+ * Counter 1 would be preferable because the closure is what allows the counter to work because counter 1 is wrapped in the closure the numbers will increment as we want them to. 
+* Counter 2 will not work be better because it will not increment the numbers. 
+
 */
 
 // counter1 code
@@ -56,11 +64,13 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning (random) {
+  return Math.round(Math.random() * Math.floor(random));
+ 
 }
+console.log(inning(2));
+
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +86,18 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+function finalScore(inning, numInnings){
+   let finalScores = {
+     'Home Team Name': 'The Bears',
+     'Home Final Score': 5,
+     'Away Team Name': 'The Chickens', 
+     'Away Final Score': 9,
+     'Game Results': 'The Chickens Win The Game',   
+  }
+   return finalScores
 
 }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -104,7 +121,7 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(inning, numInnings, getInningScore) {
   /* CODE HERE */
 }
 
