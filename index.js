@@ -38,7 +38,7 @@ function processFirstItem(stringList, callback) {
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  
  * Counter 1 would be preferable because the closure is what allows the counter to work because counter 1 is wrapped in the closure the numbers will increment as we want them to. 
-* Counter 2 will not work be better because it will not increment the numbers. 
+* Counter 2 will be okay to use if you have to reuse that count and it can be transformed many times 
 
 */
 
@@ -65,10 +65,10 @@ function counter2() {
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning (random) {
-  return Math.round(Math.random() * Math.floor(random));
- 
+  const newInning = Math.floor(Math.random() * 3);
+  return newInning;
 }
-console.log(inning(2));
+console.log(inning());
 
 
 
@@ -87,17 +87,18 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(inning, numInnings){
-   let finalScores = {
-     'Home Team Name': 'The Bears',
-     'Home Final Score': 5,
-     'Away Team Name': 'The Chickens', 
-     'Away Final Score': 9,
-     'Game Results': 'The Chickens Win The Game',   
-  }
-   return finalScores
+   let finalScores = {};
 
-}
-console.log(finalScore(inning, 9));
+   let homeTeamScores = inning * numInnings;
+   let awayTeamScores = inning * numInnings;
+
+   finalScores.home = homeTeamScores;
+   finalScores.away = awayTeamScores;
+
+   return finalScores;
+};
+finalScore(inning(), 9);
+
 
 /* Task 4: 
 
@@ -121,8 +122,32 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(inning, numInnings, getInningScore) {
-  /* CODE HERE */
-}
+function scoreboard(inning, getInningScore) {
+    let score = {
+      "Home": 0,
+      "Away": 0,
+    }
+    let scorearray = [];
+    for(let i = 1; i <= getInningScore; i++ ) {
+        score["Home"] += inning(0,2);
+        score["Away"] += inning(0,2);
+        if (i === 1) {
+          scorearray.push (`1st inning: ${score["Home"]} - ${score["Away"]}`);
+        }
+        else if(i ===2) {
+          scorearray.push (`2nd inning: ${score["Home"]} - ${score["Away"]}`);
+        }
+        else if(i ===3) {
+          scorearray.push (`3rd inning: ${score["Home"]} - ${score["Away"]}`);
+        }
+        else {
+          scorearray.push (`${i}th inning: ${score["Home"]} - ${score["Away"]}`);
+        }
+      }
+    console.log (scorearray)
+  }
+  scoreboard (inning, 9);
+  
+
 
 
